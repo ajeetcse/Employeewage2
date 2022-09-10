@@ -12,8 +12,12 @@ public class UC3 {
 
         int Emp_wage = 0;
         int Emp_Working_Days = 20;
-        int Month_Salary = 0;
-        for (int i = 1; i < Emp_Working_Days; i++) {
+      //  int Month_Salary = 0;
+        int Max_Hrs_In_Month = 10;
+        int Total_Emp_Hrs = 0;
+        int Total_Working_Days = 0;
+        while (Total_Emp_Hrs <= Max_Hrs_In_Month && Total_Working_Days < Emp_Working_Days){
+            Total_Working_Days++;
             int empCheck = (int) Math.floor(Math.random() * 10) % 2;
             switch (empCheck) {
                 case Is_Full_Time:
@@ -34,8 +38,10 @@ public class UC3 {
                     Emp_wage = Emp_Rate_Per_Hrs * Emp_hrs;
                     System.out.println(Emp_wage);
             }
-            Month_Salary = Emp_wage+Month_Salary;
+            Total_Emp_Hrs = Emp_hrs+Total_Emp_Hrs;
+            System.out.println("Day#: " + Total_Working_Days +" Emp_hrs "+Emp_hrs);
         }
-        System.out.println("total month salary = "+Month_Salary);
+        int totalEmpWage = Total_Emp_Hrs * Emp_Rate_Per_Hrs;
+        System.out.println("Total Emp wage: "+totalEmpWage);
     }
 }
